@@ -8,6 +8,6 @@
 </div>
 </template>
 
-<style lang="scss" scoped="true">
+<style lang="scss" scoped>
 
 </style>
