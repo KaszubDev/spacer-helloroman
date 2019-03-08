@@ -1,44 +1,44 @@
 <template>
-    <div class="outerWrapper">
-        <div class="innerWrapper">
-            <div class="photo">
-                <img :src="photo">
-            </div>
-        <div class="description">
-            <h2 class="title">{{ title }}</h2>
-            <p class="description">
-              {{ description }}
-            </p>
-        </div>
-        </div>
-        <div class="close" @click="$emit('closeModal')" />
+  <div class="outerWrapper">
+    <div class="innerWrapper">
+      <div class="photo">
+        <img :src="photo">
+      </div>
+      <div class="description">
+        <h2 class="title">{{ title }}</h2>
+        <p class="description">
+          {{ description }}
+        </p>
+      </div>
     </div>
+    <div class="close" @click="$emit('closeModal')" />
+  </div>
 </template>
 <script>
 export default {
-    name: "Modal",
-    props: {
-        item: {
-            type: Object,
-            required: true,
-        },
+  name: 'Modal',
+  props: {
+    item: {
+      type: Object,
+      required: true,
     },
-    data() {
-        return {
-            photo: null,
-            title: null,
-            description: null,
-        };
-    },
-        mounted() {
-            this.photo = this.item.links[0].href;
-            this.title = this.item.data[0].title;
-            this.description = this.item.data[0].description.substring(0,200);
-        }
+  },
+  data() {
+    return {
+      photo: null,
+      title: null,
+      description: null,
+    };
+  },
+  mounted() {
+    this.photo = this.item.links[0].href;
+    this.title = this.item.data[0].title;
+    this.description = this.item.data[0].description.substring(0, 200);
+  },
 };
 </script>
 <style lang="scss" scoped>
-    .outerWrapper {
+  .outerWrapper {
     background: #f6f6f6;
     max-width: 100%;
     height: 100%;
@@ -100,8 +100,10 @@ export default {
       width: 100%;
       height: auto;
       background: black;
+      overflow: auto;
       img {
         width: 100%;
+        height: auto;
       }
     }
     .description {
